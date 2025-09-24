@@ -34,6 +34,9 @@ class FunctionHandler extends RestHandler<Types.TAllowAction>() {
 
     // Cache
     this.restHandler.setAction('cache__get_data', FunctionHandler.cacheGetData, ['key'])
+
+    // Playback
+    this.restHandler.setAction('playback__get_data', FunctionHandler.playbackGetData, [])
   }
 
   // RawDB
@@ -109,6 +112,11 @@ class FunctionHandler extends RestHandler<Types.TAllowAction>() {
   // Cache
   private static async cacheGetData(params: IActionHandlerParams<DataServiceTypes.ICacheGetData>) {
     return await DataService.cacheGetData(params)
+  }
+
+  // Playback
+  private static async playbackGetData(params: IActionHandlerParams<DataServiceTypes.IGetPlaybackData>) {
+    return await DataService.playbackGetData(params)
   }
 }
 
