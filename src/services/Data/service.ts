@@ -1,3 +1,4 @@
+import axios from 'axios'
 import dayjs from 'dayjs'
 import { QueryResponse } from 'dynamoose/dist/ItemRetriever'
 import * as lodash from 'lodash'
@@ -279,5 +280,19 @@ export class DataService {
       CacheKey: params.bodyPayload.key,
     })
     return data
+  }
+
+  // Playback
+  public static async playbackGetData(params: IActionHandlerParams<Types.IGetPlaybackData>) {
+    const response = await axios.post('http://54.251.242.155:8082/Playback', {
+      filter: {
+        start_date: dayjs(params.bodyPayload.filter.startDate).format('YYYY-MM-DD HH:mm:ss'),
+        end_date: dayjs(params.bodyPayload.filter.endDate).format('YYYY-MM-DD HH:mm:ss'),
+      },
+      pagination: params.bodyPayload.page ?? 1,
+      page_size: params.bodyPayload.pageSize ?? 20,
+    })
+
+    return response.data
   }
 }

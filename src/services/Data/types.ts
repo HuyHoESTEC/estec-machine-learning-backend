@@ -81,3 +81,12 @@ export type IGetSingleFeedback = {
 export type ICacheGetData = {
   key: CACHE_SORT_KEY
 }
+
+export type IGetPlaybackData = {
+  filter: {
+    startDate: Date
+    endDate: Date
+  }
+  page: number
+  pageSize: number
+}
