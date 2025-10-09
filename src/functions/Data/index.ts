@@ -37,6 +37,12 @@ class FunctionHandler extends RestHandler<Types.TAllowAction>() {
 
     // Playback
     this.restHandler.setAction('playback__get_data', FunctionHandler.playbackGetData, [])
+
+    // Anomaly detect
+    this.restHandler.setAction('anomaly_detect__get_data', FunctionHandler.anomalyDetectGetData, [])
+
+    // Recommend control
+    this.restHandler.setAction('recommend_control__get_data', FunctionHandler.recommendControlGetData, [])
   }
 
   // RawDB
@@ -117,6 +123,16 @@ class FunctionHandler extends RestHandler<Types.TAllowAction>() {
   // Playback
   private static async playbackGetData(params: IActionHandlerParams<DataServiceTypes.IGetPlaybackData>) {
     return await DataService.playbackGetData(params)
+  }
+
+  // Anomaly Detect
+  private static async anomalyDetectGetData(params: IActionHandlerParams<DataServiceTypes.IGetAnomalyDetectData>) {
+    return await DataService.anomalyDetectGetData(params)
+  }
+
+  // Recommend control
+  private static async recommendControlGetData(params: IActionHandlerParams<DataServiceTypes.IGetRecommendControlData>) {
+    return await DataService.recommendControlGetData(params)
   }
 }
 

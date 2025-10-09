@@ -6,5 +6,7 @@ type Feedback_Action = 'feedback__get_feedback_ticket' | 'feedback__save_feedbac
 type Issue_Action = 'issue__update_acknowledge' | 'issue_get_list'
 type Cache_Action = 'cache__get_data'
 type PlaybackAction = 'playback__get_data'
+type AnomalyDetectAction = 'anomaly_detect__get_data'
+type RecommendControlAction = 'recommend_control__get_data'
 
-export type TAllowAction = TRawDB_Action | TAppDB_Action | TS3_Action | Factory_Action | Feedback_Action | Issue_Action | Cache_Action | PlaybackAction
+export type TAllowAction = TRawDB_Action | TAppDB_Action | TS3_Action | Factory_Action | Feedback_Action | Issue_Action | Cache_Action | PlaybackAction | AnomalyDetectAction | RecommendControlAction

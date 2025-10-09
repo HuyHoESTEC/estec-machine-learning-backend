@@ -90,3 +90,29 @@ export type IGetPlaybackData = {
   page: number
   pageSize: number
 }
+
+export type IGetAnomalyDetectData = {
+  state: {
+    Pyrometer: number,
+    KilnInletTemp: number,
+    KilnDriAmp: number,
+    GA01_Oxi: number,
+    GA02_Oxi: number,
+    GA03_Oxi: number,
+    CO: number,
+    NOx: number
+  }
+}
+
+export type IGetRecommendControlData = {
+  state: {
+    Pyrometer: number,
+    KilnInletTemp: number,
+    KilnDriAmp: number,
+    GA01_Oxi: number,
+    GA02_Oxi: number,
+    GA03_Oxi: number,
+    CO: number,
+    NOx: number
+  }
+}
