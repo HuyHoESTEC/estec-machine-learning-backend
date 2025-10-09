@@ -295,4 +295,40 @@ export class DataService {
 
     return response.data
   }
+
+  // Anomaly detect
+  public static async anomalyDetectGetData(params: IActionHandlerParams<Types.IGetAnomalyDetectData>) {
+    const response = await axios.post('http://54.251.242.155:8088/anomaly_detect', {
+      state: {
+        Pyrometer: params.bodyPayload.state.Pyrometer,
+        KilnInletTemp: params.bodyPayload.state.KilnInletTemp,
+        KilnDriAmp: params.bodyPayload.state.KilnDriAmp,
+        GA01_Oxi: params.bodyPayload.state.GA01_Oxi,
+        GA02_Oxi: params.bodyPayload.state.GA02_Oxi,
+        GA03_Oxi: params.bodyPayload.state.GA03_Oxi,
+        CO: params.bodyPayload.state.CO,
+        NOx: params.bodyPayload.state.NOx
+      }
+    })
+
+    return response.data
+  }
+
+  // Recommend control
+  public static async recommendControlGetData(params: IActionHandlerParams<Types.IGetRecommendControlData>) {
+    const response = await axios.post('http://54.251.242.155:8088/recommend_control', {
+      state: {
+        Pyrometer: params.bodyPayload.state.Pyrometer,
+        KilnInletTemp: params.bodyPayload.state.KilnInletTemp,
+        KilnDriAmp: params.bodyPayload.state.KilnDriAmp,
+        GA01_Oxi: params.bodyPayload.state.GA01_Oxi,
+        GA02_Oxi: params.bodyPayload.state.GA02_Oxi,
+        GA03_Oxi: params.bodyPayload.state.GA03_Oxi,
+        CO: params.bodyPayload.state.CO,
+        NOx: params.bodyPayload.state.NOx
+      }
+    })
+
+    return response.data
+  }
 }
